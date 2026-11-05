@@ -4,7 +4,7 @@ import { ProductCatalogModel } from './components/Models/ProductCatalogModel';
 import { CartModel } from './components/Models/CartModel';
 import { BuyerModel } from './components/Models/BuyerModel';
 import { Api } from './components/base/Api';
-import { LarekApi } from './components/Models/LarekApi';
+import { LarekApi } from './components/LarekApi';
 import { API_URL } from './utils/constants';
 
 const catalog = new ProductCatalogModel();

@@ -7,9 +7,7 @@ export class CartModel {
         return this.items;
     }
     addProduct(product: IProduct): void {
-        if (!this.hasProduct(product.id)) {
-            this.items.push(product);
-        }
+      this.items.push(product);
     }
     removeProduct(product: IProduct): void {
         this.items = this.items.filter((item) => item.id !== product.id);

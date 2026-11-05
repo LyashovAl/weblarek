@@ -155,20 +155,13 @@ interface IProductListResponse {
 #### Интерфейс запроса заказа IOrderRequest
 Интерфейс описывает данные заказа, которые приложение отправляет на сервер.
 
-interface IOrderRequest {
-  payment: TPayment;
-  email: string;
-  phone: string;
-  address: string;
+interface IOrderRequest extends IBuyer {
   total: number;
   items: string[];
 }
 
 Описание полей:
-`payment: TPayment` — выбранный способ оплаты.
-`email: string` — электронная почта покупателя.
-`phone: string` — номер телефона покупателя.
-`address: string` — адрес доставки.
+`IBuyer` — содержит данные покупателя: способ оплаты, email, телефон и адрес.
 `total: number` — общая стоимость заказа.
 `items: string[]` — массив идентификаторов товаров в заказе.
 
@@ -214,7 +207,7 @@ interface IOrderResponse {
 
 Методы:
 `getItems(): IProduct[]` — возвращает массив товаров в корзине.
-`addProduct(product: IProduct): void` — добавляет товар, полученный в параметре, в корзину. При наличии данного товара в корзине, повторно товар не добавляется.
+`addProduct(product: IProduct): void` — добавляет товар, полученный в параметре, в корзину.
 `removeProduct(product: IProduct): void` — удаляет товар из корзины.
 `clear(): void` — удаляет все товары из корзины.
 `getTotal(): number` — возвращает стоимость всех товаров в корзине.
